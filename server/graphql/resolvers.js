@@ -1,33 +1,33 @@
-const Post = require("../Model/Post");
+const Todo = require("../Model/Todo");
 
 // Resolvers
 const resolvers = {
   Query: {
     getAll: async () => {
-      return await Post.find();
+      return await Todo.find();
     },
   },
   Mutation: {
     createTodo: async (parent, args, context, info) => {
-      const { title, description } = args.post;
-      const post = await new Post({ title, description }).save();
-      return post;
+      const { title, description } = args.todo;
+      const todo = await new Todo({ title, description }).save();
+      return todo;
     },
 
     updateTodo: async (parent, args, context, info) => {
       const { id } = args;
-      const { title, description } = args.post;
-      const post = await Post.findByIdAndUpdate(
+      const { title, description } = args.todo;
+      const todo = await Todo.findByIdAndUpdate(
         id,
         { title, description },
         { new: true }
       );
-      return post;
+      return todo;
     },
 
     deleteTodo: async (parent, args, context, info) => {
       const { id } = args;
-      await Post.findByIdAndDelete(id);
+      await todo.findByIdAndDelete(id);
       return "Deleted";
     },
   },
