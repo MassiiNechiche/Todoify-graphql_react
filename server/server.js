@@ -23,18 +23,16 @@ mongoose.connect(
 );
 
 // Server
-
 const StartServer = async () => {
   const app = express();
-
-  const ApolloServer = new ApolloServer({
+  const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
   });
 
-  await ApolloServer.start();
-  ApolloServer.applyMiddleware({ app: app });
-  app.listen(4000, () => console.log("Server running on port 4000"));
+  await apolloServer.start();
+  apolloServer.applyMiddleware({ app: app });
+  app.listen(4000, () => console.log("Server started at port 4000"));
 };
 
 StartServer();
