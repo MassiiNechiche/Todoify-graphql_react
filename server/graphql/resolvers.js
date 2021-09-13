@@ -27,7 +27,7 @@ const resolvers = {
 
     deleteTodo: async (parent, args, context, info) => {
       const { id } = args;
-      await todo.findByIdAndDelete(id);
+      await Todo.findByIdAndDelete(id);
       return "Deleted";
     },
   },
