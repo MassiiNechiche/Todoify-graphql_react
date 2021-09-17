@@ -17,8 +17,6 @@ function Core() {
 
       <div className="todo_items">
         <Item />
-        <Item />
-        <Item />
       </div>
     </div>
   );
