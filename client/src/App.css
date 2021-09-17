@@ -115,3 +115,9 @@
   color: #c6c7c7;
   cursor: pointer;
 }
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

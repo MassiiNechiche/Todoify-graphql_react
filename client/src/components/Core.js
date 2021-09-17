@@ -5,6 +5,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { CREATE_POST, DELETE_POST } from "../graphql/Mutation";
 import { getAll } from "../graphql/Query";
 import { useState } from "react";
+import Loading from "./Loading";
 
 function Core() {
   const { loading, error, data } = useQuery(getAll);
@@ -13,7 +14,7 @@ function Core() {
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
 
-  if (loading) return "Loading";
+  if (loading) return <Loading />;
 
   return (
     <div className="core">
