@@ -2,7 +2,7 @@ import React from "react";
 import { DeleteOutlined } from "@ant-design/icons";
 import { EllipsisOutlined } from "@ant-design/icons";
 
-function Item({ title, description }) {
+function Item({ title, description, remove }) {
   return (
     <div className="item">
       <div className="icon">
@@ -13,7 +13,7 @@ function Item({ title, description }) {
         <div className="description">{description}</div>
       </div>
       <div className="action">
-        <div className="delete">
+        <div className="delete" onClick={remove}>
           <DeleteOutlined />
         </div>
       </div>

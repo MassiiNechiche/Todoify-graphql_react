@@ -33,6 +33,15 @@ function Core() {
     setDescription();
   };
 
+  const removePost = (id) => {
+    alert(id);
+    deletePost({
+      variables: {
+        id: id,
+      },
+    });
+  };
+
   return (
     <div className="core">
       <form>
@@ -55,7 +64,11 @@ function Core() {
 
       <div className="todo_items">
         {data.getAll.map((data) => (
-          <Item title={data.title} description={data.description} />
+          <Item
+            title={data.title}
+            description={data.description}
+            remove={() => removePost(data.id)}
+          />
         ))}
       </div>
     </div>
