@@ -16,10 +16,27 @@ function Core() {
 
   if (loading) return <Loading />;
 
+  const addPost = (e) => {
+    e.preventDefault();
+
+    alert(title);
+    alert(description);
+
+    createPost({
+      variables: {
+        title: title,
+        description: description,
+      },
+    });
+
+    setTitle();
+    setDescription();
+  };
+
   return (
     <div className="core">
       <form>
-        <button type="submit">
+        <button type="submit" onClick={addPost}>
           <PlusCircleOutlined />
         </button>
         <div className="inputs">
