@@ -19,8 +19,9 @@ function Core() {
   const addPost = (e) => {
     e.preventDefault();
 
-    alert(title);
-    alert(description);
+    if (!title || !description) {
+      return;
+    }
 
     createPost({
       variables: {
@@ -34,7 +35,6 @@ function Core() {
   };
 
   const removePost = (id) => {
-    alert(id);
     deletePost({
       variables: {
         id: id,
